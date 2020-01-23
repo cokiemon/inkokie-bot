@@ -1,8 +1,8 @@
-# Original Coast Clothing Messenger Bot
+# Inkokie Messenger Bot
 
-Original Coast Clothing (OC) is a fictional clothing brand created to showcase key features of the Messenger Platform. OC leverages key features to deliver a great customer experience. Using this demo as inspiration, you can create a delightful messaging experience that leverages both automation and live customer support. We are also providing the open source code of the app and a guide to deploy the experience on your local environment or remote server.
+Inkokie is a my company bot for the Messenger Platform. Inkokie leverages key features to deliver a great customer experience.
 
-[Access the Messenger experience](https://m.me/OriginalCoastClothing?ref=GITHUB)
+[Access the Messenger experience](https://m.me/110686403786666?ref=GITHUB)
 
 ![Messenger Experience](public/experience.png)
 
