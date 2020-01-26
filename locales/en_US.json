@@ -8,7 +8,10 @@
     "help": "Talk to an agent",
     "suggestion": "Outfit suggestions",
     "shop": "Shop now",
-    "start_over": "Start over"
+    "start_over": "Start over",
+    "toner": "Toner",
+    "ink": "Ink",
+    "accessories": "Accessories"
   },
   "get_started": {
     "welcome": "Hi {{userFirstName}}! Welcome to Inkokie Printing Services where you'll find items for your printing needs.",
@@ -24,6 +27,9 @@
   },
   "curation": {
     "prompt": "Are you looking for an outfit for yourself or someone else?",
+    "prompt_toner": "Here is the list of our featured toners.",
+    "prompt_ink": "Here is the list of our featured inks.",
+    "prompt_accessories": "Here is the list of our featured accessories.",
     "occasion": "Great! Let's get started. First, is there an occasion in mind?",
     "price": "How much are you looking to spend?",
     "me": "For me!",

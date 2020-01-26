@@ -93,6 +93,7 @@ module.exports = class Receive {
       let care = new Care(this.user, this.webhookEvent);
       response = care.handlePayload("CARE_HELP");
     } else {
+      // Handle unrecognized text message from user.
       response = [
         Response.genText(
           i18n.__("fallback.any", {
@@ -102,8 +103,18 @@ module.exports = class Receive {
         Response.genText(i18n.__("get_started.guidance")),
         Response.genQuickReply(i18n.__("get_started.help"), [
           {
-            title: i18n.__("menu.suggestion"),
-            payload: "CURATION"
+            //title: i18n.__("menu.suggestion"),
+            //payload: "CURATION"
+            title: i18n.__("menu.toner"),
+            payload: "CURATION_TONER"
+          },
+          {
+            title: i18n.__("menu.ink"),
+            payload: "CURATION_INK"
+          },
+          {
+            title: i18n.__("menu.accessories"),
+            payload: "CURATION_ACCESSORIES"
           },
           {
             title: i18n.__("menu.help"),
