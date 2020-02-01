@@ -39,8 +39,14 @@
     "party": "Party",
     "sales": "Talk to sales",
     "shop": "Shop this look",
+    "shop_toner": "Shop this toners",
+    "shop_ink": "Shop this inks",
     "title": "Summer collection 2019",
     "subtitle": "Featured outfit",
+    "title_toner": "Toner collection",
+    "subtitle_toner": "Brother Compatible",
+    "title_ink": "Ink collection",
+    "subtitle_ink": "HP and Epson",
     "show": "Another look"
   },
   "order": {
