@@ -4,7 +4,7 @@ Inkokie is a my company bot for the Messenger Platform. Inkokie leverages key fe
 
 [Access the Messenger experience](https://m.me/110686403786666?ref=GITHUB)
 
-![Messenger Experience](public/experience.png)
+![Messenger Experience](public/inkokie-phone.png)
 
 See the [Developer Documentations on this experience](https://developers.facebook.com/docs/messenger-platform/getting-started/sample-apps/original-coast-clothing).
 
