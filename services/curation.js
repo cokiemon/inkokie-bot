@@ -242,24 +242,23 @@ module.exports = class Curation {
 
   genSelectionResponse(payload) {
     let product_type = payload.split("_")[1].toLowerCase();
-    let ambot = `${config.shopUrl}/collections/featured-toner`;
+    let url_featured_toners = `${config.shopUrl}/collections/featured-toner`;
+    let url_featured_inks = `${config.shopUrl}/collections/featured`;
 
-    let buttons = [
-      Response.genWebUrlButton(
-        i18n.__("curation.shop"),
-        `${config.shopUrl}/collections/featured-toner`
-      ),
-      Response.genPostbackButton(
-        i18n.__("curation.show"),
-        "CURATION_OTHER_STYLE"
-      )
-    ];
-
+    let buttons = [];
     let image_url_toner = "https://cdn.shopify.com/s/files/1/0002/4559/6169/products/TN_2380_Cover_360x.jpg";
     let image_url_ink = "https://cdn.shopify.com/s/files/1/0002/4559/6169/products/Epson_T03Y_Series_360x.jpg";
 
     switch (product_type) {
       case "toner":
+        buttons.push(
+          Response.genWebUrlButton(
+            i18n.__("curation.shop_toner"), url_featured_toners)
+        );
+        buttons.push(
+          Response.genPostbackButton(i18n.__("curation.sales"), "CARE_SALES")
+        );
+
         return Response.genGenericTemplate(
           image_url_toner,
           i18n.__("curation.title_toner"),
@@ -267,7 +266,16 @@ module.exports = class Curation {
           buttons
         );
         break;
+
       case "ink":
+        buttons.push(
+          Response.genWebUrlButton(
+            i18n.__("curation.shop_ink"), url_featured_inks)
+        );
+        buttons.push(
+          Response.genPostbackButton(i18n.__("curation.sales"), "CARE_SALES")
+        );
+
         return Response.genGenericTemplate(
           image_url_ink,
           i18n.__("curation.title_ink"),
@@ -275,6 +283,7 @@ module.exports = class Curation {
           buttons
         );
         break;
+
       default:
         console.log('Unsupported product type.');
         return;
