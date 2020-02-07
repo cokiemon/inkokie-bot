@@ -70,6 +70,7 @@ module.exports = class Curation {
         break;
 
       case "CURATION":
+        // Bot response to show after replying to suggestions (i.g. Toner, Ink, etc.)
         response = Response.genQuickReply(i18n.__("curation.prompt"), [
           {
             title: i18n.__("curation.me"),
@@ -80,6 +81,16 @@ module.exports = class Curation {
             payload: "CURATION_SOMEONE_ELSE"
           }
         ]);
+        break;
+
+      case "CURATION_TONER":
+        // Bot response to the user selects/replies "Toner".
+        response = this.genSelectionResponse(payload);
+        break;
+
+      case "CURATION_INK":
+        // Bot response to the user selects/replies "Ink".
+        response = this.genSelectionResponse(payload);
         break;
 
       case "CURATION_FOR_ME":
@@ -200,10 +211,12 @@ module.exports = class Curation {
     let budget = payload.split("_")[2].toLowerCase();
     let outfit = `${this.user.gender}-${occasion}`;
 
+    let ambot = `${config.shopUrl}collections/featured-toner`;
+
     let buttons = [
       Response.genWebUrlButton(
         i18n.__("curation.shop"),
-        `${config.shopUrl}/products/${outfit}`
+        `${config.shopUrl}collections/featured-toner`
       ),
       Response.genPostbackButton(
         i18n.__("curation.show"),
@@ -225,6 +238,47 @@ module.exports = class Curation {
     );
 
     return response;
+  }
+
+  genSelectionResponse(payload) {
+    let product_type = payload.split("_")[1].toLowerCase();
+    let ambot = `${config.shopUrl}/collections/featured-toner`;
+
+    let buttons = [
+      Response.genWebUrlButton(
+        i18n.__("curation.shop"),
+        `${config.shopUrl}/collections/featured-toner`
+      ),
+      Response.genPostbackButton(
+        i18n.__("curation.show"),
+        "CURATION_OTHER_STYLE"
+      )
+    ];
+
+    let image_url_toner = "https://cdn.shopify.com/s/files/1/0002/4559/6169/products/TN_2380_Cover_360x.jpg";
+    let image_url_ink = "https://cdn.shopify.com/s/files/1/0002/4559/6169/products/Epson_T03Y_Series_360x.jpg";
+
+    switch (product_type) {
+      case "toner":
+        return Response.genGenericTemplate(
+          image_url_toner,
+          i18n.__("curation.title_toner"),
+          i18n.__("curation.subtitle_toner"),
+          buttons
+        );
+        break;
+      case "ink":
+        return Response.genGenericTemplate(
+          image_url_ink,
+          i18n.__("curation.title_ink"),
+          i18n.__("curation.subtitle_ink"),
+          buttons
+        );
+        break;
+      default:
+        console.log('Unsupported product type.');
+        return;
+    }
   }
 
   randomOutfit() {
